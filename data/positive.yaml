@@ -1,0 +1,174 @@
+# 正样本集：已验证走红（爆款标答）
+# 用途：校准预测模型（爆款生命周期是核心）
+# 构建日期：2026-08-14
+
+- id: SD-P01
+  sampleType: positive
+  name: 莫氏鸡煲
+  category: 药膳鸡煲 / 打边炉
+  district: 陈村镇
+  address: 绀现村
+  operating: 营业中；周一定休，午晚各限100号
+  isDemo: true
+  owner:
+    name: 莫叔（老莫）
+    age: 60
+    background: 老中医转行做餐饮；早年承包鱼塘失败欠债180余万元
+    personality: 佛系、耿直、反套路、怕累怕红
+    signatureLines:
+      - 别拍太火，生意太忙我做不了啊
+      - 味道一般，别跟风打卡
+      - 喝汤可能拉肚子
+      - 赚得多，有命花吗
+      - 早日倒闭，才能早日开心（60岁生日愿望）
+    story: 坚持现宰180天散养走地鸡，药膳汤底（土茯苓/五指毛桃/老陈皮/黄豆），不预制；爆火后仍坚持限号与定休
+  craft:
+    keywords: [现宰, 走地鸡, 药膳, 不预制, 炭炉瓦煲]
+    heritage: 老中医配方汤底
+    rarity: 4
+    visualImpact: 炭炉瓦煲沸腾、现宰斩鸡、中药材下锅、山野小店烟火气
+  reputation:
+    score: 4.5
+    reviewKeywords: [真材实料, 汤底浓, 老板真实, 排队太久]
+    regularCustomers: 爆红前为周边街坊
+    buzz: 爆红前无网络声量，本地口碑好
+  pricingCapacity:
+    priceBand: 人均约50-80元（鸡38元/斤，汤底38元/份）
+    capacity: 原日均10桌；爆红后日均200桌、单日客流峰值3000-6000人
+    limit: 午晚各100号，号完即止
+  potentials:
+    人设反差度: 98
+    风味品相度: 92
+    故事叙事性: 95
+    情绪共鸣度: 97
+    素材续航度: 82
+  risks:
+    - 产能严重不足，旺季排队7小时+，黄牛炒号300元
+    - 老板健康透支（每天睡3-4小时、腰伤复发）
+    - 供应链替换风险：日均200只超自养能力，改用温氏土鸡被食客吐槽口感差异
+    - 商业化（分店/加盟/直播）与"佛系人设"存在反差争议
+  lifetime:
+    - date: 2026-03-25
+      event: 千万粉博主刘雨鑫发布探店视频
+      metrics: 单条曝光超1.5亿，点赞150万+
+    - date: 2026-04
+      event: 全网话题累计播放破5亿；单日客流峰值3000-6000人；政府连夜平整2000㎡建停车场（"停鸡坪"）
+    - date: 2026-04-29
+      event: 大良分店开业（200㎡+、近50桌）
+    - date: 2026-05
+      event: 直播带货（汤底料38.8元/份、土鸡套餐258元/份）；近30天销售额500万-1000万；申请"莫叔鸡煲"等商标
+    - date: 2026-05-28
+      event: 莫叔称已靠流量还清全部欠债
+    - date: 2026-06下旬
+      event: 流量退潮，日销活鸡跌至不足20只
+    - date: 2026-07
+      event: 客流回归平稳，日宰约100只，员工减至20余名，组建20人直播团队
+  evidence:
+    - source: 凤凰网·凤凰观势
+      url: https://foshan.ifeng.com/c/8s7mU8DkR8p
+      date: 2026-04
+    - source: 东方财富
+      url: https://finance.eastmoney.com/a/202605293754020965.html
+      date: 2026-05
+    - source: 21世纪经济报道·流量退潮
+      url: http://www.21jingji.com/article/20260625/herald/0c75d584bb3856c92835deb97cc29caa.html
+      date: 2026-06
+    - source: 封面新闻·流量够了，再也不想大火
+      url: https://m.thecover.cn/news_details.html
+      date: 2026-07
+  createdAt: 2026-08-14
+
+- id: SD-P02
+  sampleType: positive
+  name: 聚福山莊
+  category: 粤菜老字号
+  district: 顺德（镇街待核）
+  address: 待核
+  operating: 营业中
+  owner:
+    name: 卢锦辉
+    background: 30年老字号第二代掌门人
+    personality: 拥抱新媒体、有转型魄力
+    signatureLines: []
+    story: 30年老字号推动年轻化转型；"蔡澜三访聚福"成为核心话题素材
+  craft:
+    keywords: [精致摆盘, 少油少糖, 年轻化]
+    heritage: 30年老字号
+    rarity: 3
+    visualImpact: 精致摆盘、老字号场景
+  reputation:
+    score: 高
+    reviewKeywords: [老字号, 年轻化, 直播间]
+    regularCustomers: 本地家庭 + 年轻游客
+    buzz: 抖音破圈，蔡澜三访视频播放超百万，首播GMV超150万
+  pricingCapacity:
+    priceBand: 中高端（待核）
+    capacity: 大，可承接高客流
+    limit: 无
+  potentials:
+    人设反差度: 50
+    风味品相度: 78
+    故事叙事性: 70
+    情绪共鸣度: 60
+    素材续航度: 65
+  risks:
+    - 老字号包袱，缺"反套路"人设，容易停在"有流量没爆点"
+    - 年轻化转型未形成稳定内容生态
+  lifetime:
+    - date: 2025-08前
+      event: 蔡澜三访聚福短视频爆红
+      metrics: 抖音播放超100万
+    - date: 2025
+      event: 首播直播带货
+      metrics: GMV超150万、直播间曝光超150万、登抖音全国地方菜榜第2
+  evidence:
+    - source: 南方日报·30年顺德老字号餐厅在抖音破圈
+      url: https://epaper.nfnews.com/nfdaily/html/202508/15/content_10144780.html
+      date: 2025-08
+  createdAt: 2026-08-14
+
+- id: SD-P03
+  sampleType: positive
+  name: 大头华烧鹅
+  category: 非遗烧鹅
+  district: 勒流街道
+  address: 黄连社区
+  operating: 营业中
+  owner:
+    background: 非遗传承人
+    personality: 匠人、内敛
+    signatureLines: []
+    story: 非遗传承烧鹅，因央视《寻味顺德》纪录片成名，从小档口升级为宽敞堂食
+  craft:
+    keywords: [非遗烧鹅, 现烧, 卤味]
+    heritage: 非遗传承
+    rarity: 4
+    visualImpact: 烧鹅出炉、斩件现切
+  reputation:
+    score: 高
+    reviewKeywords: [非遗, 央视, 烧鹅]
+    regularCustomers: 本地 + 慕名游客
+    buzz: 全网知名度高（纪录片带火），但未形成现象级排队事件
+  pricingCapacity:
+    priceBand: 中（待核）
+    capacity: 升级后堂食容量提升
+    limit: 无
+  potentials:
+    人设反差度: 40
+    风味品相度: 85
+    故事叙事性: 75
+    情绪共鸣度: 60
+    素材续航度: 60
+  risks:
+    - 已成名但"太老牌"，缺乏新叙事抓手
+    - 老板内敛，缺出镜表达
+  lifetime:
+    - date: 2016-2017
+      event: 央视《寻味顺德》播出，名气大涨
+    - date: 2026
+      event: 小档口升级宽敞堂食，新增鹅翅鹅掌卤味
+  evidence:
+    - source: 佛山在线·游客时隔十年重访大头华老店
+      url: http://www.fsonline.com.cn/FS_PLUS/1061344.html
+      date: 2026
+  createdAt: 2026-08-14

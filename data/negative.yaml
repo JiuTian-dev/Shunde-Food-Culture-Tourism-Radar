@@ -1,0 +1,333 @@
+# 反样本集：有名气/有传统但没爆（教模型分辨"该爆 vs 不该爆"）
+# 诊断价值：分析"为什么没爆"，输出模型的反面特征
+# 构建日期：2026-08-14
+
+- id: SD-N01
+  sampleType: negative
+  name: 民信老铺（华盖路店）
+  category: 双皮奶 / 广式甜品
+  district: 大良街道
+  address: 华盖路步行街
+  operating: 营业中
+  isDemo: true
+  owner:
+    background: 品牌可追溯至20世纪30年代；双皮奶制作技艺为广东省非物质文化遗产
+    personality: 无突出人设
+    signatureLines: []
+    story: 老字号传承，但主理人鲜少出镜、无故事化表达
+  craft:
+    keywords: [双皮奶, 非遗技艺, 水牛奶]
+    heritage: 广东省非遗（双皮奶制作技艺）
+    rarity: 3
+    visualImpact: 标准化出品，出片元素一般
+  reputation:
+    score: 高（游客打卡多）
+    reviewKeywords: [老字号, 游客多, 出品稳定, 偏甜]
+    regularCustomers: 外地游客为主
+    buzz: 全网知名度高，但从未形成"现象级事件"
+  pricingCapacity:
+    priceBand: 人均15-30元
+    capacity: 大，连锁化经营
+    limit: 无
+  potentials:
+    人设反差度: 25
+    风味品相度: 70
+    故事叙事性: 40
+    情绪共鸣度: 40
+    素材续航度: 35
+  risks:
+    - 游客店定位，本地人认可度下降
+    - 无记忆点/无梗，内容难破圈
+    - 标准化出品削弱"真实烟火气"感知
+  evidence:
+    - source: 电话邦·民信老铺
+      url: https://www.dianhua.cn/dt/1408ea65198a47b58748c984c41dc6a5/658a6728c26e896218f3177be6852eef
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-N02
+  sampleType: negative
+  name: 仁信老铺
+  category: 双皮奶 / 姜撞奶
+  district: 大良街道
+  address: 华盖路（多店）
+  operating: 营业中
+  owner:
+    background: 顺德甜品老字号
+    personality: 无突出人设
+    signatureLines: []
+    story: 与民信并称双雄，历史同样悠久，但主理人缺故事输出
+  craft:
+    keywords: [双皮奶, 姜撞奶, 杏仁茶]
+    heritage: 老字号
+    rarity: 3
+    visualImpact: 标准化出品
+  reputation:
+    score: 高（游客打卡多）
+    reviewKeywords: [厚重, 游客多, 出品稳定]
+    regularCustomers: 外地游客为主
+    buzz: 知名度高，无现象级事件
+  pricingCapacity:
+    priceBand: 人均15-30元
+    capacity: 大
+    limit: 无
+  potentials:
+    人设反差度: 25
+    风味品相度: 70
+    故事叙事性: 38
+    情绪共鸣度: 38
+    素材续航度: 32
+  risks:
+    - 与民信双雄内卷，独特性被稀释
+    - 无差异化记忆点
+  evidence:
+    - source: 电话邦·仁信老铺
+      url: https://www.dianhua.cn/dt/f682a1360b2545f2a45f9dea6e460085/b9b822acc601657518f317720b852e85
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-N03
+  sampleType: negative
+  name: 冯不记米坊
+  category: 云吞面 / 传统粤式小吃
+  district: 大良街道
+  address: 多店
+  operating: 营业中
+  owner:
+    background: 传统老字号
+    personality: 无表达
+    signatureLines: []
+    story: 手工鱼皮角、濑粉等传统小吃，但品牌无故事化叙事
+  craft:
+    keywords: [云吞面, 鱼皮角, 濑粉]
+    heritage: 老字号
+    rarity: 2
+    visualImpact: 一般
+  reputation:
+    score: 中上
+    reviewKeywords: [传统, 老字号]
+    regularCustomers: 本地 + 游客
+    buzz: 有稳定客流，无网络声量
+  pricingCapacity:
+    priceBand: 人均20-40元
+    capacity: 大，连锁
+    limit: 无
+  potentials:
+    人设反差度: 20
+    风味品相度: 65
+    故事叙事性: 35
+    情绪共鸣度: 35
+    素材续航度: 30
+  risks:
+    - 老板不表达、无梗无故事
+    - 品类常见，无稀缺性
+  evidence:
+    - source: 电话邦·冯不记米坊
+      url: https://www.dianhua.cn/dt/b7375eab94b948d8a546e1413964fbfb/86f271a3bf8b662b16bd177d1a852e26
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-N04
+  sampleType: negative
+  name: 猪肉婆私房菜
+  category: 高端私房菜
+  district: 容桂街道
+  address: 待核（巷内岭南大宅）
+  operating: 营业中
+  owner:
+    background: 黑珍珠餐厅主理人
+    personality: 精致、低调
+    signatureLines: []
+    story: 黑珍珠级别私房菜，岭南大宅环境，银杏猪肚汤等名菜
+  craft:
+    keywords: [黑珍珠, 岭南大宅, 精致粤菜]
+    heritage: 无
+    rarity: 4
+    visualImpact: 岭南大宅、精致摆盘
+  reputation:
+    score: 高
+    reviewKeywords: [黑珍珠, 高端, 环境好]
+    regularCustomers: 高端食客
+    buzz: 圈层内有名气，无大众现象级
+  pricingCapacity:
+    priceBand: 高（人均数百元）
+    capacity: 中等
+    limit: 无
+  potentials:
+    人设反差度: 30
+    风味品相度: 80
+    故事叙事性: 45
+    情绪共鸣度: 40
+    素材续航度: 45
+  risks:
+    - 高端定位离"市井烟火"远，流量属性天然弱
+    - 高客单，难引发大众传播
+  evidence:
+    - source: 小红书·顺德吃过念念不忘的小店合集
+      url: https://www.xiaohongshu.com/discovery/item/69831059000000002203ab35
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-N05
+  sampleType: negative
+  name: 顺峰山庄
+  category: 高端粤菜 / 烧鹅
+  district: 大良街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 知名餐饮集团
+    personality: 品牌化、无个人人设
+    signatureLines: []
+    story: 招牌烧鹅（荔枝木烤制）皮脆肉嫩，顺德高端宴请名片
+  craft:
+    keywords: [荔枝木烧鹅, 高端粤菜]
+    heritage: 无
+    rarity: 3
+    visualImpact: 烧鹅挂炉、精致摆盘
+  reputation:
+    score: 高
+    reviewKeywords: [烧鹅, 高端, 宴请]
+    regularCustomers: 商务宴请
+    buzz: 有名气，无现象级事件
+  pricingCapacity:
+    priceBand: 高
+    capacity: 大
+    limit: 无
+  potentials:
+    人设反差度: 25
+    风味品相度: 78
+    故事叙事性: 40
+    情绪共鸣度: 35
+    素材续航度: 40
+  risks:
+    - 高端正餐定位，缺市井烟火叙事
+    - 品牌无人设，难产生情绪共鸣
+  evidence:
+    - source: 小红书·容桂本地人美食攻略
+      url: https://www.xiaohongshu.com/discovery/item/65841c5a0000000038032b2c
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-N06
+  sampleType: negative
+  name: 毋米粥
+  category: 粥底火锅
+  district: 大良街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 「寻味顺德」纪录片带火的名店
+    personality: 无个人人设
+    signatureLines: []
+    story: 粥底浓稠、涮手切牛肉嫩滑，纪录片出镜后成游客必吃榜
+  craft:
+    keywords: [粥底火锅, 浓稠粥底]
+    heritage: 无
+    rarity: 3
+    visualImpact: 粥底翻滚、涮肉
+  reputation:
+    score: 中高（口碑两极）
+    reviewKeywords: [出名, 游客多, 排队, 口味见仁见智]
+    regularCustomers: 游客为主
+    buzz: 知名度高、游客排队，但口碑两极、无爆点事件
+  pricingCapacity:
+    priceBand: 人均80-120元
+    capacity: 大
+    limit: 无
+  potentials:
+    人设反差度: 30
+    风味品相度: 72
+    故事叙事性: 40
+    情绪共鸣度: 42
+    素材续航度: 40
+  risks:
+    - 已成游客店，本地认可度分化
+    - 有流量但无"人设/故事"爆点，属于"有名气但没现象"
+  evidence:
+    - source: 小红书·顺德桑拿鸡本地人推荐
+      url: https://www.xiaohongshu.com/discovery/item/68c38a72000000001d021e6c
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-N07
+  sampleType: negative
+  name: 松记食店
+  category: 清水火锅
+  district: 容桂街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 三十三年老字号
+    personality: 讲究、有人情味（店员全程帮烫，被戏称"残废餐"）
+    signatureLines: []
+    story: 清水火锅代表，常年必吃榜，口碑极稳但从未现象级爆发
+  craft:
+    keywords: [清水火锅, 新鲜食材]
+    heritage: 三十三年老字号
+    rarity: 3
+    visualImpact: 清水涮烫、店员现烫
+  reputation:
+    score: 高
+    reviewKeywords: [必吃榜, 新鲜, 店员帮烫]
+    regularCustomers: 本地 + 老饕
+    buzz: 常年口碑好，无现象级事件
+  pricingCapacity:
+    priceBand: 人均60-100元
+    capacity: 中等
+    limit: 无
+  potentials:
+    人设反差度: 45
+    风味品相度: 80
+    故事叙事性: 55
+    情绪共鸣度: 65
+    素材续航度: 55
+  risks:
+    - 口碑天花板高但缺少"引爆点"（无大梗、无强画面）
+    - 老板服务型人设，缺"劝退式"反差
+  evidence:
+    - source: 小红书·顺德本地人带路美食地图
+      url: https://m.dianping.com/ugcdetail/141310670
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-N08
+  sampleType: negative
+  name: 欢姐伦教糕
+  category: 伦教糕 / 手信
+  district: 伦教街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 伦教糕名店
+    personality: 无突出人设
+    signatureLines: []
+    story: 伦教糕伴手礼，甜香带米香，知名度高但单品化
+  craft:
+    keywords: [伦教糕, 米香, 手信]
+    heritage: 名点
+    rarity: 3
+    visualImpact: 一般
+  reputation:
+    score: 中高
+    reviewKeywords: [手信, 伴手礼, 米香]
+    regularCustomers: 游客买手信为主
+    buzz: 知名度高，无现象级
+  pricingCapacity:
+    priceBand: 人均20-50元
+    capacity: 大
+    limit: 无
+  potentials:
+    人设反差度: 20
+    风味品相度: 70
+    故事叙事性: 35
+    情绪共鸣度: 35
+    素材续航度: 30
+  risks:
+    - 单品手信定位，故事性弱
+    - 无场景、无人设、无新叙事
+  evidence:
+    - source: 网易·寻味顺德又何止大良
+      url: https://m.163.com/dy/article_v2/I40721OK0522B8ON.html
+      date: 2026
+  createdAt: 2026-08-14

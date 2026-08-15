@@ -1,0 +1,650 @@
+# 事件数据库：近5年（2021-2026）正向美食爆火事件 · 对标案例库
+# 用途：①热度标签词典（labels） ②爆火模型校准样本（对标莫氏） ③预言师复盘案例
+# 字段约定：
+#   id / sampleType / name / time / duration / region / category
+#   labels        热度标签数组（每个事件提取 2-4 个典型叙事钩子）
+#   igniteLogic   引爆逻辑（叙事完整的一句话说明）
+#   factorType    主导爆款因子类型（人设反差类 / 玩梗造梗类 / 情绪仪式类 / 品类创新类 / 城市接住类）
+#   peakMetrics   峰值热度数据（key: value）
+#   timeline      爆火时间线 [{date, event, metrics}]
+#   evidence      来源证据（source + url + date，可溯源）
+# 说明：factorType 为人工归类，仅供模型校准参考；本库不参与 data_loader 的 load_shops（店铺三件套之外）。
+# 构建日期：2026-08-15
+
+- id: EV-01
+  sampleType: event
+  name: 莫氏鸡煲「反向劝退」
+  time: 2026-03
+  duration: 约3个月（爆红→退潮）
+  region: 广东·顺德
+  category: 小店爆火
+  labels:
+    - 反向劝退
+    - 别拍太火，我忙不过来
+    - 早日倒闭，才能早日开心
+    - 想躺平却被钞票追着跑
+  igniteLogic: 老板莫叔面对镜头不仅不求火，反而反复劝退顾客、自曝短板"喝汤可能拉肚子"，这种"明明想躺平、却被客流和钞票追着跑"的真实反差，精准戳中大众对"反内卷、松弛感"的情绪刚需，把一家村口小店推向全网现象级。
+  factorType: 人设反差类
+  peakMetrics:
+    单条曝光: 超1.5亿，点赞150万+
+    单日客流: 峰值8000+人，排队最长7小时+
+    变现: 汤料包5分钟抢空4000份；近30天销售额500万-1000万
+  timeline:
+    - date: 2026-03-25
+      event: 博主刘雨鑫发布探店视频
+      metrics: 单条曝光超1.5亿，点赞150万+
+    - date: 2026-04
+      event: 全网话题播放破5亿；政府连夜建2000㎡"停鸡坪"
+      metrics: 单日客流峰值3000-8000人
+    - date: 2026-06下旬
+      event: 流量退潮
+      metrics: 日销活鸡不足20只
+  evidence:
+    - source: 大公文匯·莫氏雞煲爆紅 老闆連勸「別來吃」
+      url: https://www.tkww.hk/a/202604/14/AP69dd86c1e4b04773b06b6345.html
+      date: 2026-04
+    - source: 澎湃新闻·爆火3个月后流量退潮
+      url: https://www.thepaper.cn/newsDetail_forward_33450963
+      date: 2026-06
+  createdAt: 2026-08-15
+
+- id: EV-02
+  sampleType: event
+  name: 天水麻辣烫「接棒淄博」
+  time: 2024-03
+  duration: 约1年（持续发酵）
+  region: 甘肃·天水
+  category: 城市级美食出圈
+  labels:
+    - 辣嘴唇子不辣嗓子
+    - 教科书式宠粉
+    - 麻辣烫专线
+    - 接棒淄博烧烤
+  igniteLogic: 从一条百万点赞的种草视频裂变开始，"甘谷辣椒辣嘴唇不辣嗓子"的差异化口感成为第一记忆点；天水随即开通麻辣烫专线、免费接驳、机关停车位对外开放等"教科书式宠粉"，把一碗麻辣烫接成一座城的文旅名片。
+  factorType: 城市接住类
+  peakMetrics:
+    话题播放: 抖音相关话题超15亿
+    全年游客: 5950万人次，旅游收入383亿元（同比+23%）
+    店铺规模: 麻辣烫店约1400家，较走红前增长5倍
+  timeline:
+    - date: 2024-03
+      event: 一条"建议全国普及甘肃麻辣烫"视频获百万点赞，裂变传播
+      metrics: 抖音话题播放超15亿
+    - date: 2024-清明
+      event: 天水开启"麻辣烫专线"等宠粉措施
+      metrics: 清明旅游订单同比+21倍
+    - date: 2024全年
+      event: 全年旅游数据出炉
+      metrics: 游客5950万人次、收入383亿元
+  evidence:
+    - source: 中国新闻网·从淄博、哈尔滨到天水，算法成了美的放大镜
+      url: http://www.chinanews.com.cn/cj/2024/03-19/10182719.shtml
+      date: 2024-03
+    - source: 新京报·天水麻辣烫接棒淄博烧烤
+      url: https://www.bjnews.com.cn/detail/1711705351129593.html
+      date: 2024-03
+  createdAt: 2026-08-15
+
+- id: EV-03
+  sampleType: event
+  name: 淄博烧烤「灵魂三件套」
+  time: 2023-03
+  duration: 约2-3个月（五一达峰）
+  region: 山东·淄博
+  category: 城市级美食出圈
+  labels:
+    - 灵魂三件套
+    - 坐高铁去淄博撸串
+    - 大学生特种兵
+    - 打假博主10店不缺斤短两
+  igniteLogic: 大学生"特种兵"式组团坐高铁撸串带动第一波话题，"小饼卷小葱+双层炉亲手烤"的强参与强出片吃法形成记忆点；叠加政府连夜开烧烤专列、商家诚信不宰客的"实在"人设，让一串烧烤带火一座城。
+  factorType: 品类创新类
+  peakMetrics:
+    搜索量: '"淄博烧烤"全平台搜索同比+770%'
+    五一行情: 住宿预订较2019年+800%，旅游订单+2000%
+    火车站客流: 日峰值约5万人次（近3年最高）
+  timeline:
+    - date: 2023-03
+      event: '"大学生组团到淄博吃烧烤"话题冲上热搜'
+      metrics: 烧烤搜索量同比+370%
+    - date: 2023-04
+      event: 开通烧烤专列、21条定制公交专线
+      metrics: 火车站日客流峰值约5万人次
+    - date: 2023-05
+      event: 五一假期客流达峰
+      metrics: 住宿预订较2019年+800%
+  evidence:
+    - source: 新华网·淄博烧烤火了，期待维持这份热
+      url: https://www.news.cn/comments/20230412/896fb855fc4f4154a49c5e6cc208fada/c.html
+      date: 2023-04
+    - source: 人民网·中国城市报·网红之后想把流量变留量
+      url: http://paper.people.com.cn/zgcsbwap/html/2023-04/17/content_25976224.htm
+      date: 2023-04
+  createdAt: 2026-08-15
+
+- id: EV-04
+  sampleType: event
+  name: 哈尔滨·尔滨「讨好型市格」
+  time: 2023-12
+  duration: 约1个雪季（12月-次年2月）
+  region: 黑龙江·哈尔滨
+  category: 城市级文旅出圈
+  labels:
+    - 尔滨你让我感到陌生
+    - 南方小土豆
+    - 冻梨摆盘
+    - 讨好型市格
+  igniteLogic: 哈尔滨以"讨好型市格"出圈，把粗犷的冻梨切成刺身般摆盘、驯鹿巡游、人造月亮等宠客操作轮番上阵，连本地人都惊呼"尔滨你让我感到陌生"，这种"把游客宠上天"的反差服务成为最强传播引擎。
+  factorType: 人设反差类
+  peakMetrics:
+    总曝光: 抖音等平台超27亿
+    元旦客流: 游客304.79万人次、旅游收入59.14亿元（双创历史峰值）
+    全年游客: 1.79亿人次，旅游总花费2314.2亿元（同比+32%/+37%）
+  timeline:
+    - date: 2023-12-18
+      event: 冰雪大世界开园，"退票危机"次日道歉整改、转危为机
+      metrics: 信任危机转化为"城市名片"
+    - date: 2024-元旦
+      event: '"南方小土豆"话题引爆，"尔滨你让我感到陌生"成热梗'
+      metrics: 游客304.79万人次、收入59.14亿元
+    - date: 2023-2024雪季
+      event: 雪季收官
+      metrics: 累计接待游客8700多万人次、收入1248亿元
+  evidence:
+    - source: 中国日报·27亿曝光造就文旅顶流，解码哈尔滨出圈密码
+      url: https://cn.chinadaily.com.cn/a/202402/27/WS65dd73f5a3109f7860dd317e.html
+      date: 2024-02
+    - source: 澎湃新闻·小土豆盘活的不仅是冬天的哈尔滨
+      url: https://m.thepaper.cn/newsDetail_forward_29613860.html
+      date: 2024-01
+  createdAt: 2026-08-15
+
+- id: EV-05
+  sampleType: event
+  name: 螺蛳粉「万物皆可」
+  time: 2021
+  duration: 全年持续（2020年起势、2021达峰）
+  region: 广西·柳州
+  category: 品类级爆火
+  labels:
+    - 我们的螺蛳粉怎么还没来
+    - 万物皆可螺蛳粉
+    - 臭香猎奇
+    - 国民顶流
+  igniteLogic: 疫情期"螺蛳粉断货"成为全民情绪出口，酸臭鲜辣的猎奇口味自带话题性；随后"万物皆可螺蛳粉"的造梗狂欢（月饼、奶茶、香膏）把单一小吃升级成国民级文化梗，越离谱越出圈。
+  factorType: 玩梗造梗类
+  peakMetrics:
+    断货热搜: '"我们的螺蛳粉怎么还没来"上热搜，厂家加班生产'
+    衍生品类: 螺蛳粉月饼/汤圆/青团/面包/酸奶/奶茶/蛋糕/香膏等
+    品牌下场: 李子柒、肯德基、五菱宏光、快手等跨界入场
+  timeline:
+    - date: 2020初
+      event: 疫情囤货潮中螺蛳粉断货
+      metrics: 微博热搜"我们的螺蛳粉怎么还没来"
+    - date: 2021
+      event: '"万物皆可螺蛳粉"造梗狂欢达峰'
+      metrics: 螺蛳粉味衍生品层出不穷
+  evidence:
+    - source: 网易·"螺蛳粉味"滚出美食圈！
+      url: https://www.163.com/dy/article/GD60UJEE051285EO.html
+      date: 2021
+  createdAt: 2026-08-15
+
+- id: EV-06
+  sampleType: event
+  name: 围炉煮茶「中式慢生活」
+  time: 2022-10
+  duration: 一个冬季（约3个月）
+  region: 全国（上海为标杆）
+  category: 情绪消费爆火
+  labels:
+    - 中式慢生活
+    - 冬日仪式感
+    - 梦华录同款
+    - 围炉烤茶
+  igniteLogic: 借《梦华录》的宋代茶文化想象，把"火炉+陶壶+烤橘子"的场景包装成新中产冬日仪式感，物理温暖+精神治愈双重属性，让喝茶从品饮变成可拍照、可分享的情绪消费。
+  factorType: 情绪仪式类
+  peakMetrics:
+    话题播放: 抖音#围炉煮茶#超5.3亿次
+    小红书浏览: 话题浏览量超1155万次
+    场景: 上海茶馆预订几乎每天爆满
+  timeline:
+    - date: 2022-10
+      event: 秋冬围炉煮茶在社交平台起势
+      metrics: 抖音话题播放5.3亿、小红书浏览1155万+
+    - date: 2022-冬
+      event: 接棒露营、飞盘成为新中产冬日休闲方式
+      metrics: 上海茶馆预订几乎每天爆满
+  evidence:
+    - source: 澎湃新闻·冬日情绪消费：去年热煮红酒，今年围炉烤茶
+      url: https://m.thepaper.cn/newsDetail_forward_20560538.html
+      date: 2022
+    - source: 上观新闻·火到爆的围炉煮茶
+      url: https://export.shobserver.com/baijiahao/html/559965.html
+      date: 2022
+  createdAt: 2026-08-15
+
+- id: EV-07
+  sampleType: event
+  name: 云南菌子「红伞伞白杆杆」
+  time: 2021-07
+  duration: 夏季吃菌季（约2-3个月）
+  region: 云南
+  category: 官方科普出圈
+  labels:
+    - 红伞伞白杆杆
+    - 见小人
+    - 吃菌三熟
+    - 云南试毒大会
+  igniteLogic: 官方把严肃的毒蘑菇科普改编成魔性童谣和民警短视频，朗朗上口的叠词与"见小人"的猎奇梗引发全民二创，让云南吃菌文化在娱乐化传播中破圈，堪称"官方玩梗"的范本。
+  factorType: 玩梗造梗类
+  peakMetrics:
+    传播渠道: 社交网络占81%
+    版本二创: 山歌版/消防版/民警版/动画版/蜜雪冰城旋律版
+    衍生梗: '"吃菌三熟"、"云南试毒大会"'
+  timeline:
+    - date: 2021-07-13
+      event: 云南消防发布防毒宣传视频
+      metrics: 话题热度上升
+    - date: 2021-07-16
+      event: 富源民警毛源豹用《老司机带带我》旋律唱"红伞伞白杆杆"
+      metrics: 迅速火爆全网
+    - date: 2021-07-17
+      event: 人民日报转发云南楚雄消防视频
+      metrics: 话题"#云南消防为防止你吃毒蘑菇有多拼#"引爆
+  evidence:
+    - source: 澎湃新闻·"红伞伞，白杆杆"昭通人快乐安全吃菌
+      url: https://www.thepaper.cn/newsDetail_forward_13785797.html
+      date: 2021-07
+    - source: 搜狐·"红伞伞，白杆杆"吃菌童谣是怎么火起来的
+      url: https://www.sohu.com/a/480193149_716901/
+      date: 2021
+  createdAt: 2026-08-15
+
+- id: EV-08
+  sampleType: event
+  name: 热红酒「冬天的第一杯」
+  time: 2021-12
+  duration: 一个冬季
+  region: 全国（上海起势）
+  category: 情绪消费爆火
+  labels:
+    - 冬天的第一杯热红酒
+    - 10元一杯的路边摊仪式感
+    - 微醺+养生
+    - 圣诞限定
+  igniteLogic: 上海一家便利店门口的路边摊10元现煮热红酒排队出圈，低门槛+易复制让"摆摊热红酒"迅速铺满全国街头，"微醺+养生+圣诞氛围"的情绪价值，让一杯饮品成为年轻人的冬日社交货币。
+  factorType: 情绪仪式类
+  peakMetrics:
+    小红书: 话题总浏览2684.71万次，笔记近10万篇
+    声量: 2021年8-12月社交平台声量8.71万篇
+    单摊销量: 上海起源摊一天最多卖五六百杯
+  timeline:
+    - date: 2021-11
+      event: 上海复兴西路便利店门口10元热红酒路边摊排队出圈
+      metrics: 一天最多卖五六百杯
+    - date: 2021-12
+      event: '"冬天的第一杯热红酒"上热搜，蔓延全国'
+      metrics: 小红书话题浏览2684万+
+  evidence:
+    - source: 澎湃新闻·热红酒，当下最火的网红生意
+      url: https://m.thepaper.cn/baijiahao_16122627.html
+      date: 2021-12
+    - source: 南方+·今冬的流量密码，只要10元一杯
+      url: https://static.nfapp.southcn.com/content/202112/30/c6089723.html
+      date: 2021-12
+  createdAt: 2026-08-15
+
+- id: EV-09
+  sampleType: event
+  name: 黄油年糕「糯叽叽」
+  time: 2025-01
+  duration: 约1-2个月（春节后达峰）
+  region: 全国（江浙起势）
+  category: 品类创新爆火
+  labels:
+    - 糯叽叽
+    - 外酥里糯
+    - 热量小炸弹
+    - 空气炸锅友好
+  igniteLogic: 把法式可露丽本土化成"中式年糕+黄油"，踩中"糯叽叽"的国民口感偏好和自制烘焙风潮，泸溪河43天卖出200万个；"热量小炸弹"的反话标签反而强化了晒图分享欲，小红书笔记破10万。
+  factorType: 品类创新类
+  peakMetrics:
+    销量: 泸溪河上市43天卖出200万个
+    笔记: 小红书相关笔记超10万篇
+    门店: 开出全国首家"黄油糕糕"IP主题店
+  timeline:
+    - date: 2023
+      event: 江苏南通一烘焙工作室首创（可露丽本土化）
+      metrics: 做法初现
+    - date: 2025春节
+      event: 泸溪河推出黄油年糕爆火
+      metrics: 43天卖200万个、小红书笔记10万+
+  evidence:
+    - source: 澎湃新闻·从黄油年糕到固体杨枝甘露，这些过气网红食物谁还爱
+      url: https://m.thepaper.cn/newsdetail_forward_32349040.html
+      date: 2026
+    - source: 36氪·从黄油年糕到固体杨枝甘露
+      url: https://m.36kr.com/p/3631437520045316
+      date: 2026
+  createdAt: 2026-08-15
+
+- id: EV-10
+  sampleType: event
+  name: 奶皮子糖葫芦「糖葫芦Pro」
+  time: 2025-12
+  duration: 一个冬季
+  region: 全国（北京/上海/哈尔滨等）
+  category: 品类创新爆火
+  labels:
+    - 98元一串
+    - 排队3小时
+    - 糖葫芦考研
+    - 情绪满足型消费
+  igniteLogic: 把平价山楂换成无花果、晴王葡萄等高价水果再裹奶皮子，单价冲到98元却仍要排队3小时，高颜值强出片+价格反差自带讨论度，话题播放量破6亿，被视为"情绪满足型"消费的样本。
+  factorType: 品类创新类
+  peakMetrics:
+    话题播放: 短视频平台相关话题超6亿次
+    单价: 98元一串
+    排队: 想吃需排队3小时
+  timeline:
+    - date: 2025-12
+      event: 奶皮子糖葫芦成冬季顶流，多地排队热潮
+      metrics: 话题播放超6亿、排队3小时
+  evidence:
+    - source: 澎湃新闻·从黄油年糕到固体杨枝甘露
+      url: https://m.thepaper.cn/newsdetail_forward_32349040.html
+      date: 2026
+  createdAt: 2026-08-15
+
+- id: EV-11
+  sampleType: event
+  name: 刘强东带火「黄狗猪头肉」
+  time: 2025-09
+  duration: 事件型（单次引爆+后续延续）
+  region: 江苏·宿迁
+  category: 名人效应带火地方菜
+  labels:
+    - 大佬下厨
+    - 锅气里的战争
+    - 系着围裙炒宿迁名菜
+    - 搜索量+300%
+  igniteLogic: 身家千亿的企业家系围裙亲自下厨炒宿迁名菜，把个人乡愁与"兄弟文化"绑在一起——顶级身份做最烟火的事，反差感让"黄狗猪头肉"搜索量暴增300%、一小时内售罄，名人效应为地方菜免费代言。
+  factorType: 人设反差类
+  peakMetrics:
+    搜索量: 黄狗猪头肉搜索量增长300%
+    售罄: 七鲜小厨食材一小时内售罄
+    连带: 周边餐厅订单量增长15%
+  timeline:
+    - date: 2025-09
+      event: 刘强东在北京亲自下厨烹制"黄狗猪头肉"
+      metrics: 搜索量+300%、一小时售罄
+    - date: 2025-11
+      event: 三亚再烹"卷饼尖椒小鱼""酱豆炒蛋"（均为宿迁名菜）
+      metrics: '"锅气里的战争"持续发酵'
+  evidence:
+    - source: 新京报·刘强东带火宿迁名菜：黄狗猪头肉
+      url: https://m.bjnews.com.cn/detail/1762221348129420.html
+      date: 2025
+    - source: 每经·韧行2025：企业家画像·刘强东：炒锅烟火升腾
+      url: http://www.nbd.com.cn/rss/sohu/articles/4195598.html
+      date: 2025
+  createdAt: 2026-08-15
+
+- id: EV-12
+  sampleType: event
+  name: 扬州「饺面泡油条」方言翻红
+  time: 2026-05
+  duration: 事件型（老视频二次翻红）
+  region: 江苏·扬州
+  category: 方言玩梗出圈
+  labels:
+    - 饺面一碗油条一根
+    - 方言玩梗
+    - 6年前视频翻红
+    - 老视频二次传播
+  igniteLogic: 一条6年前的扬州方言美食视频被网友重新挖出，"饺面一碗油条一根"的魔性口播和市井画面自带喜感，方言+美食+玩梗的组合让老视频二次翻红、全网流量破3亿，带动整座城市出圈。
+  factorType: 玩梗造梗类
+  peakMetrics:
+    全网流量: 破3亿
+    传播形态: 6年前老视频被挖出二次翻红
+  timeline:
+    - date: 2026-05
+      event: 6年前拍摄的方言美食视频突然翻红
+      metrics: '"饺面一碗油条一根"话题全网流量破3亿'
+  evidence:
+    - source: 学习强国·江苏扬州："饺面泡油条"流量破3亿
+      url: https://article.xuexi.cn/articles/index.html?art_id=12421270992376220128
+      date: 2026-05
+  createdAt: 2026-08-15
+
+- id: EV-13
+  sampleType: event
+  name: 杭州「不正宗坐牢」湘菜馆
+  time: 2026-08
+  duration: 事件型
+  region: 浙江·杭州
+  category: 真诚营销出圈
+  labels:
+    - 身份证当招牌
+    - 不正宗坐牢
+    - 百分之百只有湖南人
+    - 真诚营销
+  igniteLogic: 湘菜馆把八位湖南厨师的身份证彩印成招牌，配文"百分之百只有湖南人""不正宗坐牢"，用近乎发誓的狠话+实名背书制造信任感和话题性，被网友称为"真诚营销"范本，直接引发排队热潮。
+  factorType: 人设反差类
+  peakMetrics:
+    传播: 身份证招牌照片全网刷屏，引发排队热潮
+    客群: 西湖边湘菜馆，本地+游客
+  timeline:
+    - date: 2026-08
+      event: 西湖边湘菜馆以八位湖南厨师身份证做招牌
+      metrics: 引发排队热潮，被称"真诚营销"范本
+  evidence:
+    - source: 潮新闻·"不正宗坐牢"，把身份证当招牌的八个湖南厨师
+      url: https://tidenews.com.cn/news.html?id=3522227
+      date: 2026-08
+  createdAt: 2026-08-15
+
+- id: EV-14
+  sampleType: event
+  name: 霉豆腐「白毛豆腐新剧本」
+  time: 2026-02
+  duration: 事件型
+  region: 全国
+  category: 传统美食翻红
+  labels:
+    - 不能摸的白毛豆腐
+    - 霉豆腐新剧本
+    - 解压界
+    - 千年佐餐翻红
+  igniteLogic: 千年传统佐餐小食被短视频玩成"不能摸的白毛豆腐"梗，网友用积雪堆迷你摊、拼豆复刻，把老味道变成解压治愈内容，传统美食借"新剧本"在年轻人中翻红。
+  factorType: 玩梗造梗类
+  peakMetrics:
+    二创玩法: 积雪堆迷你霉豆腐摊、拼豆复刻
+    破圈方向: 向"解压界"进军
+  timeline:
+    - date: 2026-02
+      event: '"不能摸的白毛豆腐"摊主对话成网络流行语'
+      metrics: 网友二创玩法层出不穷
+  evidence:
+    - source: 人民日报海外版·千年霉豆腐玩儿出"新剧本"
+      url: https://paper.people.com.cn/rmrbhwb/pc/content/202602/24/content_30141537.html
+      date: 2026-02
+  createdAt: 2026-08-15
+
+- id: EV-15
+  sampleType: event
+  name: 恰巴塔「瑜伽裤面包」
+  time: 2026-03
+  duration: 事件型（热搜+持续消费）
+  region: 全国
+  category: 品类创新爆火
+  labels:
+    - 万物皆可夹
+    - 丑面包逆袭
+    - 单链接卖6000万
+    - 冲上热搜第一
+  igniteLogic: 这款意大利"丑面包"因"万物皆可夹"的包容性被重新发明，山姆、盒马入局把价格打到每只4元，"长得丑但什么都装得下"的反差人设成为新宠，单链接销售额破6000万、冲上热搜第一。
+  factorType: 品类创新类
+  peakMetrics:
+    销售额: 单链接超6000万元
+    热搜: 冲上小红书热点榜TOP1
+    巨头入局: 山姆、盒马、桃李等把价格打到每只4元
+  timeline:
+    - date: 2026-03
+      event: 恰巴塔"万物皆可夹"冲上热搜第一
+      metrics: 单链接销售额超6000万
+  evidence:
+    - source: 36氪·单链爆卖6000万，"瑜伽裤面包"火了
+      url: https://m.36kr.com/p/3707224638026112
+      date: 2026-03
+  createdAt: 2026-08-15
+
+- id: EV-16
+  sampleType: event
+  name: 中式炸鸡「鸡排哥→鸡柳大人」
+  time: 2022-2026
+  duration: 多年持续（品类级扩张）
+  region: 全国（景德镇起、嵊州延续）
+  category: 品类级爆发
+  labels:
+    - 鸡排哥→鸡柳大人
+    - 新晋顶流小吃
+    - 鸡柳+年糕+薯条
+    - 地方小吃→品类品牌
+  igniteLogic: 从景德镇"鸡排哥"带火当地文旅，到嵊州"鸡柳大人"以"鸡柳+年糕+薯条"组合成为新顶流，"地方小吃→品类级品牌"路径清晰，中式炸鸡凭高性价比和强出片在短视频时代完成品类爆发，临榆炸鸡一年新增门店2453家。
+  factorType: 品类创新类
+  peakMetrics:
+    门店扩张: 临榆炸鸡2025年新增2453家，全球签约超6500家
+    单品销量: 全年卖出3.1亿只鸡腿
+    顶流单品: 鸡柳+年糕+薯条套餐
+  timeline:
+    - date: 2022-2024
+      event: 景德镇"鸡排哥"走红带动当地文旅
+      metrics: 单品带动城市出圈
+    - date: 2025-2026
+      event: 嵊州"鸡柳大人"成新晋顶流
+      metrics: 临榆一年新增门店2453家、卖3.1亿只鸡腿
+  evidence:
+    - source: 澎湃新闻·从鸡排哥到鸡柳大人，新晋网红小吃出现了
+      url: https://m.thepaper.cn/newsDetail_forward_33072838.html
+      date: 2026
+  createdAt: 2026-08-15
+
+- id: EV-17
+  sampleType: event
+  name: 酱香饼在台湾「排队7小时」
+  time: 2026-08
+  duration: 事件型
+  region: 台湾（大陆小吃出海）
+  category: 跨区域爆火
+  labels:
+    - 排队7小时
+    - 限购
+    - 大陆小吃在台爆火
+    - 两岸同源
+  igniteLogic: 湖北土家族酱香饼在台湾南部引发排队7小时、被迫限购的奇观；麻辣烫、肉夹馍、螺蛳粉等大陆小吃此前已陆续融入台湾，这次爆火被解读为"两岸同源文化的自然流动"，自带文化共鸣的传播力。
+  factorType: 城市接住类
+  peakMetrics:
+    排队: 民众甘愿排队7小时
+    措施: 店家被迫采取限购
+    背景: 酸菜鱼、螺蛳粉在台讨论度名列前茅
+  timeline:
+    - date: 2026-08
+      event: 酱香饼在台湾南部掀起排队热潮
+      metrics: 排队7小时、被迫限购
+  evidence:
+    - source: 央视·大陆美食在台湾又火了，这次是酱香饼
+      url: https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=9144339061541493438
+      date: 2026-08
+  createdAt: 2026-08-15
+
+- id: EV-18
+  sampleType: event
+  name: 电影《欢迎来龙餐馆》×塔斯汀联名
+  time: 2026-08
+  duration: 事件型（档期联动）
+  region: 全国
+  category: 影视+餐饮跨界
+  labels:
+    - 好好吃饭就是最好的生意
+    - 影视+餐饮联名
+    - 塔斯汀一周卖310万份
+    - 票房4亿带动
+  igniteLogic: 电影用"中东小餐馆"的故事戳中"好好吃饭"的普世情绪，塔斯汀借势推出联名套餐一周卖出310万份、出品方股票连续涨停，影视内容与餐饮消费完成互相导流的闭环。
+  factorType: 玩梗造梗类
+  peakMetrics:
+    票房: 公映当天2.46亿、累计破4亿
+    联名销量: 塔斯汀"徐福牛堡"一周卖310万份
+    资本反应: 出品方相关个股连续涨停
+  timeline:
+    - date: 2026-08
+      event: 《欢迎来龙餐馆》公映，塔斯汀推出联名套餐
+      metrics: 票房破4亿、联名套餐一周卖310万份、股票涨停
+  evidence:
+    - source: 21世纪经济报道·4亿票房、310万份汉堡、4连板涨停
+      url: https://m.21jingji.com/article/20260814/herald/06a0105678a3ce2cecf091a759b52ba6.html
+      date: 2026-08
+  createdAt: 2026-08-15
+
+- id: EV-19
+  sampleType: event
+  name: 山东鲁菜争霸赛
+  time: 2025
+  duration: 约半年
+  region: 山东（十六市联动）
+  category: 官方赛事出圈
+  labels:
+    - 一场争霸赛撬动50亿流量
+    - 美食+文旅融合新范式
+    - 2800家餐饮企业参与
+    - 政府主导全民围观
+  igniteLogic: 政府牵头把鲁菜做成全省联动、全网参与的争霸赛，历时半年席卷十六市、2800多家餐饮企业报名，用"有对抗、有参与、有官方背书"的赛事形式，把地方美食变成全民围观的事件，直接拉动文旅消费17.1亿元。
+  factorType: 城市接住类
+  peakMetrics:
+    参与企业: 超2800家
+    全域曝光: 破50亿次
+    文旅拉动: 直接拉动文旅消费17.1亿元
+  timeline:
+    - date: 2025
+      event: 鲁菜争霸赛席卷山东十六市
+      metrics: 2800+企业参与、曝光50亿、拉动文旅消费17.1亿
+  evidence:
+    - source: 河南日报·一场美食争霸赛，何以撬动50亿流量
+      url: https://app-api.henandaily.cn/mobile/view/news/527355861283110912575956
+      date: 2025
+  createdAt: 2026-08-15
+
+- id: EV-20
+  sampleType: event
+  name: 云贵川 bistro「漂亮饭」
+  time: 2025
+  duration: 趋势型（持续走红）
+  region: 全国（商圈连锁）
+  category: 场景创新爆火
+  labels:
+    - 漂亮饭
+    - 8元米线卖48元
+    - 情绪价值>口味
+    - 排队王
+  igniteLogic: 把云南酸汤米线、贵州烙锅等地方风味装进法式小酒馆场景，人均上百、颜值拉满，"漂亮饭"成了年轻人的社交货币——卖的不是米线，而是"在山野间吃饭"的情绪价值，被业内视为"制造流行"的范本。
+  factorType: 情绪仪式类
+  peakMetrics:
+    溢价: 8元酸汤米线卖48元，溢价6倍
+    门店: Ameigo超120家；山野板扎不到3年开出57家
+    趋势: 山野类餐厅订单同比+102%
+  timeline:
+    - date: 2025
+      event: 云贵川bistro成商圈"排队王"
+      metrics: Ameigo超120家、山野板扎57家
+    - date: 2025-2026
+      event: '"山野风"蔓延全行业'
+      metrics: 山野类餐厅订单同比+102%
+  evidence:
+    - source: 东方财富·8元米线卖48元，云贵川bistro为何让年轻人上头
+      url: https://wap.eastmoney.com/a/202511233572107135.html
+      date: 2025-11
+    - source: 餐饮界·万物皆可山野！火锅、地方菜、新茶饮集体"山野化"
+      url: http://www.canyin88.com:8080/zixun/2025/12/18/110376.html
+      date: 2025-12
+  createdAt: 2026-08-15

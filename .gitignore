@@ -1,0 +1,34 @@
+# 密钥与本地配置
+.env
+server.log
+server.log.err
+*.log
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# Cloudflare Wrangler 本地状态
+.wrangler/
+deploy/.wrangler/
+
+# Agent 生成的方案输出（硬编码报告，不纳入版本库）
+output/
+
+# IDE 配置
+.idea/
+.claude/
+
+# Playwright 测试日志
+.playwright-cli/
+
+# 压缩包与临时文件
+*.zip
+1.png
+_t200.jpg
+_t200.png
+_t320.jpg
+_t320.png
+logo图标.png
+小顺.jpg
+小顺图片.png

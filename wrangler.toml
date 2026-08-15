@@ -1,0 +1,3 @@
+name = "shunde-food-radar"
+pages_build_output_dir = "deploy"
+compatibility_date = "2026-08-15"

@@ -1,0 +1,960 @@
+# 候选池：高潜未爆（Demo 主角，演示 发现→诊断→预测 全链路）
+# potentials 为基于已知信息的人工预评分，供诊断 Agent 校验（不是最终值）
+# 信息不足的字段标"待核"，不得编造
+# 构建日期：2026-08-14
+
+- id: SD-C01
+  sampleType: candidate
+  name: 糖沙翁小店（陈伟祺）
+  category: 非遗点心 / 糖沙翁
+  district: 大良街道
+  address: 金榜街
+  operating: 下午开门
+  isDemo: true
+  owner:
+    name: 陈伟祺
+    age: 40
+    background: 奶奶为民国北滘莘村"大明星茶楼"创始人
+    personality: 守艺、较真
+    signatureLines: [出锅半小时就扔掉, 不建议打包，趁热吃]
+    story: 近乎失传的非遗"断代美食"，坚持纯人工制作
+  craft:
+    keywords: [徒手揉粉, 70度高温, 1斤面90个蛋, 不能预制, 30分钟一锅]
+    heritage: 近乎失传的非遗点心
+    rarity: 5
+    visualImpact: 高温徒手揉粉团、金黄酥脆出锅、10㎡老档口
+  reputation:
+    regularCustomers: 港澳穗食客专程来等开门
+    buzz: 本地圈/小红书有小范围口碑，未形成全网现象
+  pricingCapacity:
+    priceBand: 单价亲民
+    capacity: 10㎡小档口，产能极低
+    limit: 无排队管理机制
+  potentials:
+    人设反差度: 85
+    风味品相度: 88
+    故事叙事性: 92
+    情绪共鸣度: 90
+    素材续航度: 70
+  risks:
+    - 产能极低，无法接住大流量（需先扶持）
+    - 无招牌、无线上运营
+    - 品类小众（糖沙翁大众认知度低）
+  evidence:
+    - source: 顺德图书馆·近乎失传的非遗点心
+      url: https://www.sdlib.com.cn/home/article/detail/id/124136.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C02
+  sampleType: candidate
+  name: 无招牌家庭作坊（老夫妻）
+  category: 广式糖水 / 香煎鱼饼
+  district: 大良街道
+  address: 老居民区一楼
+  operating: 每日下午3点售罄关门
+  isDemo: true
+  owner:
+    age: 60+
+    background: 老夫妻经营30余年
+    personality: 佛系、不迎合、不扩张
+    signatureLines: [没有菜单, 卖完就收]
+    story: 手工磨杏仁糊（手磨三遍）、柴火慢炖陈皮绿豆沙、当天鲜活鲮鱼手打鱼饼
+  craft:
+    keywords: [手磨杏仁糊, 柴火砂锅, 现打鱼饼, 每日限量80块]
+    heritage: 无，纯手工
+    rarity: 4
+    visualImpact: 勒杜鹃窗台为标识、墙上手写小黑板菜单、柴火砂锅慢熬
+  reputation:
+    regularCustomers: 九成老街坊
+    buzz: 靠熟人口口相传，无网络声量
+  pricingCapacity:
+    priceBand: 糖水6元/碗、鱼饼5元/块
+    capacity: 极低，售罄即收
+    limit: 每日定量备货
+  potentials:
+    人设反差度: 92
+    风味品相度: 85
+    故事叙事性: 85
+    情绪共鸣度: 95
+    素材续航度: 65
+  risks:
+    - 老夫妻体力有限，流量可能成负担
+    - 无招牌无菜单，接待能力弱
+    - 不扩张意愿强，商业化空间小
+  evidence:
+    - source: 今日头条·顺德居民楼一楼无招牌
+      url: https://m.toutiao.com/article/7661226568429224499/
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C03
+  sampleType: candidate
+  name: 正嘢家
+  category: 桑拿鸡 / 粤菜
+  district: 容桂街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 本地人饭堂式老店
+    personality: 朴素
+    story: 本地老饕评价"不火真的没道理"，桑拿鸡用300天走地果园鸡
+  craft:
+    keywords: [桑拿鸡, 走地果园鸡, 桑拿无骨脆肉鲩]
+    heritage: 无
+    rarity: 3
+    visualImpact: 桑拿蒸汽上桌、现杀现蒸
+  reputation:
+    regularCustomers: 本地老饕
+    buzz: 小红书本地点评口碑好，无全网声量
+  pricingCapacity:
+    priceBand: 待核
+    capacity: 待核
+    limit: 无
+  potentials:
+    人设反差度: 60
+    风味品相度: 88
+    故事叙事性: 65
+    情绪共鸣度: 80
+    素材续航度: 70
+  risks:
+    - 深巷难找（导航都绕），影响转化
+    - 无鲜明人设，靠风味单点
+  evidence:
+    - source: 小红书·容桂本地人从小吃到大
+      url: https://www.xiaohongshu.com/discovery/item/69c50021000000002301224c
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C04
+  sampleType: candidate
+  name: 容边排骨饭
+  category: 排骨饭 / 快餐
+  district: 容桂街道
+  address: 待核
+  operating: 凌晨4点开门
+  isDemo: true
+  owner:
+    background: 二十多年老街坊食堂
+    personality: 传奇、老派
+    story: 凌晨4点开始排队的传奇小店，干锅高温蒸焗排骨，二店有拉丝芝士排骨新吃法
+  craft:
+    keywords: [干锅蒸焗, 排骨饭, 凌晨营业]
+    heritage: 二十多年老店
+    rarity: 3
+    visualImpact: 凌晨4点排队、大铁锅排骨出炉
+  reputation:
+    regularCustomers: 老街坊 + 早起食客
+    buzz: 本地排队传奇，网络声量有限
+  pricingCapacity:
+    priceBand: 平价
+    capacity: 大排档，翻台快
+    limit: 无
+  potentials:
+    人设反差度: 70
+    风味品相度: 82
+    故事叙事性: 75
+    情绪共鸣度: 80
+    素材续航度: 70
+  risks:
+    - 营业时间反常识（凌晨），承接一般游客困难
+    - 品类太简单，内容续航靠"排队奇观"
+  evidence:
+    - source: 小红书·在顺德吃过念念不忘的小店合集
+      url: https://www.xiaohongshu.com/discovery/item/69831059000000002203ab35
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C05
+  sampleType: candidate
+  name: 五姨婆糖水铺
+  category: 糖水 / 甜品
+  district: 大良街道
+  address: 北区
+  operating: 营业中
+  owner:
+    background: 年过花甲的菲姐主理
+    personality: 有亲和力、有年纪故事
+    story: 花甲主理人 + 招牌开心果双皮奶 + 环境出片
+  craft:
+    keywords: [开心果双皮奶, 糖水]
+    heritage: 无
+    rarity: 3
+    visualImpact: 环境舒适出片、双皮奶颜值
+  reputation:
+    regularCustomers: 本地居民
+    buzz: 小红书有笔记，未爆
+  pricingCapacity:
+    priceBand: 平价
+    capacity: 小
+    limit: 无
+  potentials:
+    人设反差度: 75
+    风味品相度: 80
+    故事叙事性: 70
+    情绪共鸣度: 85
+    素材续航度: 65
+  risks:
+    - 主理人上镜意愿待核
+    - 品类常见，需差异化叙事
+  evidence:
+    - source: 小红书·在顺德吃过念念不忘的小店合集
+      url: https://www.xiaohongshu.com/discovery/item/69831059000000002203ab35
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C06
+  sampleType: candidate
+  name: 大可糖食
+  category: 糖水 / 甜品
+  district: 大良街道
+  address: 北区
+  operating: 营业中
+  owner:
+    background: 三个95后男生开的糖水店
+    personality: 年轻、稳扎稳打
+    story: 90后创业糖水店，80%顾客是附近居民，不做过度宣传
+  craft:
+    keywords: [糖水, 年轻人创业]
+    heritage: 无
+    rarity: 2
+    visualImpact: 待核
+  reputation:
+    regularCustomers: 附近居民
+    buzz: 本地小口碑，未爆
+  pricingCapacity:
+    priceBand: 平价
+    capacity: 小
+    limit: 无
+  potentials:
+    人设反差度: 70
+    风味品相度: 70
+    故事叙事性: 75
+    情绪共鸣度: 70
+    素材续航度: 70
+  risks:
+    - 主理人年轻但缺乏爆款叙事钩子
+    - 品类竞争激烈
+  evidence:
+    - source: 小红书·在顺德吃过念念不忘的小店合集
+      url: https://www.xiaohongshu.com/discovery/item/69831059000000002203ab35
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C07
+  sampleType: candidate
+  name: 萃元茶社
+  category: 传统饼食 / 茶饮研学
+  district: 勒流街道
+  address: 黄连古村文创园
+  operating: 营业中
+  owner:
+    background: 天元饼家第四代传人主理
+    personality: 传承、文化
+    story: 传承四代广式月饼与传统饼食，兼具饼印制作研学体验
+  craft:
+    keywords: [传统饼食, 四代传承, 研学]
+    heritage: 老字号天元饼家四代传承
+    rarity: 4
+    visualImpact: 古村文创园场景、饼印制作体验
+  reputation:
+    regularCustomers: 文化研学客群
+    buzz: 黄连古村文旅带动的口碑，未爆
+  pricingCapacity:
+    priceBand: 中
+    capacity: 文创园空间大
+    limit: 无
+  potentials:
+    人设反差度: 60
+    风味品相度: 78
+    故事叙事性: 85
+    情绪共鸣度: 75
+    素材续航度: 75
+  risks:
+    - 文化叙事强但美食本身冲击力弱
+    - 依赖黄连古村整体客流
+  evidence:
+    - source: 新浪财经·闲置厂房变身潮流打卡地
+      url: https://finance.sina.cn/2026-08-14/detail-ininhaiq4255885.d.html
+      date: 2026-08
+  createdAt: 2026-08-14
+
+- id: SD-C08
+  sampleType: candidate
+  name: 一家人三只缸烧鹅
+  category: 烧鹅
+  district: 待核（顺德）
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 家庭式烧鹅店
+    personality: 朴素
+    story: 瓦缸现烧烧鹅皮脆肉嫩，搭配百合雪梨炖土猪汤，庭院式环境
+  craft:
+    keywords: [瓦缸现烧, 烧鹅, 炖汤]
+    heritage: 无
+    rarity: 3
+    visualImpact: 瓦缸烧制、烧鹅挂炉
+  reputation:
+    regularCustomers: 家庭食客
+    buzz: 小红书宝藏店推荐，未爆
+  pricingCapacity:
+    priceBand: 人均适中
+    capacity: 庭院式，错峰不用排队
+    limit: 无
+  potentials:
+    人设反差度: 60
+    风味品相度: 82
+    故事叙事性: 65
+    情绪共鸣度: 70
+    素材续航度: 65
+  risks:
+    - 家庭店无鲜明人设
+    - 烧鹅品类竞争激烈（大头华/顺峰山庄在前）
+  evidence:
+    - source: 小红书·五家顺德隐藏好店推荐
+      url: https://www.xiaohongshu.com/discovery/item/685c2d3c000000001203d4c8
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C09
+  sampleType: candidate
+  name: 锦乐饭店（678文化街店）
+  category: 顺德菜
+  district: 待核
+  address: 678文化街
+  operating: 营业中
+  owner:
+    background: 复古供销社改造
+    personality: 有场景无个人人设
+    story: 复古供销社改造的饭店，蚬肉生菜包、金粟鱼肚羹，饭后送焦糖豆花
+  craft:
+    keywords: [复古供销社, 顺德菜, 生菜包]
+    heritage: 无
+    rarity: 3
+    visualImpact: 复古供销社场景（强打卡属性）
+  reputation:
+    regularCustomers: 游客 + 本地
+    buzz: 场景出片受小红书欢迎，未爆
+  pricingCapacity:
+    priceBand: 人均适中
+    capacity: 大
+    limit: 无
+  potentials:
+    人设反差度: 55
+    风味品相度: 75
+    故事叙事性: 65
+    情绪共鸣度: 75
+    素材续航度: 75
+  risks:
+    - 场景型爆点，人设/故事弱
+    - 依赖文化街客流
+  evidence:
+    - source: 小红书·五家顺德隐藏好店推荐
+      url: https://www.xiaohongshu.com/discovery/item/685c2d3c000000001203d4c8
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C10
+  sampleType: candidate
+  name: 美未居
+  category: 顺德菜 / 特色食材
+  district: 待核
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 特色食材老店
+    personality: 敢卖、有话题
+    story: 可尝"黑暗料理"水蟑螂（龙虱），也有顺德鱼生和传统粤菜
+  craft:
+    keywords: [水蟑螂, 龙虱, 鱼生, 猎奇食材]
+    heritage: 无
+    rarity: 5
+    visualImpact: 黑暗料理食材上桌（猎奇画面）
+  reputation:
+    regularCustomers: 猎奇食客 + 老饕
+    buzz: 因猎奇食材有讨论度，未爆
+  pricingCapacity:
+    priceBand: 适中
+    capacity: 待核
+    limit: 无
+  potentials:
+    人设反差度: 65
+    风味品相度: 75
+    故事叙事性: 70
+    情绪共鸣度: 85
+    素材续航度: 80
+  risks:
+    - 猎奇品类可能引发争议（动物食材舆论风险）
+    - 受众分两级，破圈有门槛
+  evidence:
+    - source: 小红书·在顺德吃过念念不忘的小店合集
+      url: https://www.xiaohongshu.com/discovery/item/69831059000000002203ab35
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C11
+  sampleType: candidate
+  name: 德记农庄
+  category: 自助烤肉农庄
+  district: 容桂街道
+  address: 幸福社区
+  operating: 营业中
+  owner:
+    background: 农庄主理人
+    personality: 烟火气
+    story: 自己动手煎烤的自助烤肉农庄，海鸥扣、猪鼻筋、竹肠等独特食材
+  craft:
+    keywords: [自助烤肉, 独特食材, 烟火气]
+    heritage: 无
+    rarity: 4
+    visualImpact: 自己动手煎烤、独特食材
+  reputation:
+    regularCustomers: 本地家庭
+    buzz: 千万粉博主刘雨鑫拍过，未爆
+  pricingCapacity:
+    priceBand: 适中
+    capacity: 农庄空间大
+    limit: 无
+  potentials:
+    人设反差度: 65
+    风味品相度: 75
+    故事叙事性: 60
+    情绪共鸣度: 75
+    素材续航度: 75
+  risks:
+    - 已上过千万粉博主视频但没爆，说明内容缺钩子
+    - 自助形式传播门槛略高
+  evidence:
+    - source: 南方+·何止鸡煲！跟着千万粉大V解锁顺德美食
+      url: https://www.nfnews.com/content/W3Yb1PXv6A.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C12
+  sampleType: candidate
+  name: 金宴汤德
+  category: 菌菇火锅 / 炖汤
+  district: 待核
+  address: 锦龙路132号
+  operating: 营业中
+  owner:
+    background: 主理人亲赴云南挑菌
+    personality: 讲究、舍得花心思
+    story: 主理人亲赴云南挑选菌菇，搭配新鲜走地鸡，独家菌菇酱料
+  craft:
+    keywords: [云南菌菇, 走地鸡, 菌菇酱]
+    heritage: 无
+    rarity: 4
+    visualImpact: 菌菇火锅沸腾、真材实料
+  reputation:
+    regularCustomers: 街坊
+    buzz: 街坊口碑好，未爆
+  pricingCapacity:
+    priceBand: 适中
+    capacity: 待核
+    limit: 无
+  potentials:
+    人设反差度: 60
+    风味品相度: 80
+    故事叙事性: 70
+    情绪共鸣度: 70
+    素材续航度: 65
+  risks:
+    - 主理人"亲赴云南"是故事点但尚未放大
+    - 火锅品类竞争多
+  evidence:
+    - source: 小红书·顺德街坊的滋补秘密
+      url: https://www.xiaohongshu.com/discovery/item/672ce2a4000000001d03a98b
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C13
+  sampleType: candidate
+  name: 橄榄园·特色桑拿鸡·无骨鱼
+  category: 桑拿鸡 / 桑拿鱼
+  district: 容桂街道
+  address: 桑基鱼塘边
+  operating: 10:30-14:00 / 17:30-21:00
+  isDemo: true
+  owner:
+    background: 11年老铺
+    personality: 本地、从容
+    story: 11年老铺，藏在桑基鱼塘边的农家院，门口有鱼塘和百年橄榄树；自家散养走地鸡"一鸡两吃"
+  craft:
+    keywords: [桑拿鸡, 无骨鱼, 散养走地鸡, 一鸡两吃]
+    heritage: 11年老铺
+    rarity: 3
+    visualImpact: 桑基鱼塘农家院、百年橄榄树、现杀现蒸
+  reputation:
+    regularCustomers: 本地人（多来源评为"本地人私藏No.1"）
+    buzz: 本地口碑极佳，无网络声量
+  pricingCapacity:
+    priceBand: 人均适中
+    capacity: 农家院
+    limit: 无
+  potentials:
+    人设反差度: 50
+    风味品相度: 90
+    故事叙事性: 60
+    情绪共鸣度: 80
+    素材续航度: 75
+  risks:
+    - 老板无鲜明人设，靠风味单点
+    - 位置较偏
+  evidence:
+    - source: 小红书·顺德桑拿鸡本地人推荐
+      url: https://www.xiaohongshu.com/discovery/item/68c38a72000000001d021e6c
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C14
+  sampleType: candidate
+  name: 康记饭店
+  category: 顺德鱼生
+  district: 勒流街道
+  address: 待核（榕树底起家）
+  operating: 营业中
+  isDemo: true
+  owner:
+    background: 专注鱼生30年
+    personality: 专注、老派
+    story: 从榕树底到饭店，专注顺德鱼生30年，本地人眼中"鱼生"的代名词，讲究一鱼多吃
+  craft:
+    keywords: [鱼生, 一鱼多吃, 30年专注]
+    heritage: 30年专注
+    rarity: 3
+    visualImpact: 鱼生薄切摆盘、现杀片鱼
+  reputation:
+    regularCustomers: 本地人
+    buzz: 本地人代名词级口碑，无全网声量
+  pricingCapacity:
+    priceBand: 人均适中
+    capacity: 饭店
+    limit: 无
+  potentials:
+    人设反差度: 50
+    风味品相度: 85
+    故事叙事性: 75
+    情绪共鸣度: 70
+    素材续航度: 65
+  risks:
+    - 鱼生有食品安全舆论门槛（寄生虫讨论）
+    - 缺人设反差
+  evidence:
+    - source: 网易·寻味顺德又何止大良
+      url: https://m.163.com/dy/article_v2/I40721OK0522B8ON.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C15
+  sampleType: candidate
+  name: 美姐粥苑
+  category: 粥
+  district: 勒流街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 被誉为顺德"粥仙"
+    personality: 有称号、有记忆点
+    story: 被誉为顺德"粥仙"，粥底清滑，粉肠必点，炸鸡翼强推
+  craft:
+    keywords: [粥底, 粉肠, 炸鸡翼]
+    heritage: 无
+    rarity: 3
+    visualImpact: 粥底滚烫、现炸鸡翼
+  reputation:
+    regularCustomers: 本地食客
+    buzz: 「粥仙」称号在小红书有传播，未爆
+  pricingCapacity:
+    priceBand: 人均约30元
+    capacity: 小店
+    limit: 无
+  potentials:
+    人设反差度: 75
+    风味品相度: 85
+    故事叙事性: 70
+    情绪共鸣度: 75
+    素材续航度: 70
+  risks:
+    - 粥品类视觉冲击弱于火锅/烧鹅
+    - 「粥仙」称号已小范围出圈，需放大
+  evidence:
+    - source: 网易·寻味顺德又何止大良
+      url: https://m.163.com/dy/article_v2/I40721OK0522B8ON.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C16
+  sampleType: candidate
+  name: 红星煲仔饭
+  category: 煲仔饭
+  district: 容桂街道
+  address: 总店待核
+  operating: 营业中
+  owner:
+    background: 老字号煲仔饭
+    personality: 待核
+    story: 总店酱油特别，推荐黄鳝田鸡煲仔饭
+  craft:
+    keywords: [煲仔饭, 黄鳝, 田鸡, 特别酱油]
+    heritage: 老字号
+    rarity: 2
+    visualImpact: 砂锅滋滋作响、饭焦
+  reputation:
+    regularCustomers: 本地
+    buzz: 本地推荐，未爆
+  pricingCapacity:
+    priceBand: 人均30-50元
+    capacity: 待核
+    limit: 无
+  potentials:
+    人设反差度: 50
+    风味品相度: 78
+    故事叙事性: 60
+    情绪共鸣度: 70
+    素材续航度: 60
+  risks:
+    - 品类常见，缺差异化
+    - 信息量少，需实地补采
+  evidence:
+    - source: 网易·寻味顺德又何止大良
+      url: https://m.163.com/dy/article_v2/I40721OK0522B8ON.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C17
+  sampleType: candidate
+  name: 尖沙咀饭店
+  category: 烧乳鸽
+  district: 勒流街道
+  address: 待核
+  operating: 需提前预定
+  owner:
+    background: 主打烧乳鸽
+    personality: 讲究、有原则（现点现做）
+    story: 招牌烧乳鸽现点现做，每天卖300-500只，需提前预定
+  craft:
+    keywords: [烧乳鸽, 现点现做, 限量]
+    heritage: 无
+    rarity: 3
+    visualImpact: 乳鸽出炉
+  reputation:
+    regularCustomers: 本地 + 周边
+    buzz: 需预定出名，未爆
+  pricingCapacity:
+    priceBand: 人均适中
+    capacity: 单日300-500只，产能可观
+    limit: 需提前预定
+  potentials:
+    人设反差度: 55
+    风味品相度: 80
+    故事叙事性: 60
+    情绪共鸣度: 70
+    素材续航度: 60
+  risks:
+    - 「需预定」门槛不利于随机流量承接
+    - 品类单点
+  evidence:
+    - source: 网易·寻味顺德又何止大良
+      url: https://m.163.com/dy/article_v2/I40721OK0522B8ON.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C18
+  sampleType: candidate
+  name: 野仙鱼生
+  category: 鱼生 / 文化改造
+  district: 大良街道
+  address: 清晖园附近老巷
+  operating: 营业中
+  isDemo: true
+  owner:
+    background: 主理人梁星龙，"文化点灯"系列
+    personality: 有文化情怀、会讲故事
+    story: 斥资250万活化百年岭南旧宅的鱼生美学店，鱼生薄如蝉翼，配干冰呈"视觉盛宴"
+  craft:
+    keywords: [百年老宅, 鱼生, 干冰视觉, 文化活化]
+    heritage: 百年岭南老宅活化
+    rarity: 5
+    visualImpact: 干冰鱼生视觉盛宴、百年老宅空间
+  reputation:
+    regularCustomers: 年轻客群、文化爱好者
+    buzz: 南方+报道"文化点灯"，有传播但未爆
+  pricingCapacity:
+    priceBand: 中高
+    capacity: 老宅空间
+    limit: 无
+  potentials:
+    人设反差度: 60
+    风味品相度: 85
+    故事叙事性: 85
+    情绪共鸣度: 80
+    素材续航度: 80
+  risks:
+    - 鱼生食品安全舆论门槛
+    - 高客单与市井烟火诉求有偏差
+  evidence:
+    - source: 南方+·一盘鱼生唤醒百年老宅
+      url: https://www.nfnews.com/content/16VLk9lbyr.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C19
+  sampleType: candidate
+  name: 探记煲仔饭
+  category: 煲仔饭 / 文化改造
+  district: 大良街道
+  address: 清代老宅
+  operating: 营业中
+  owner:
+    background: 「文化点灯」系列
+    personality: 有文化挖掘力
+    story: 栖身三百年清代老宅，深挖黄鳝煲仔饭的顺德月子餐民俗
+  craft:
+    keywords: [三百年老宅, 黄鳝煲仔饭, 月子餐民俗]
+    heritage: 三百年清代老宅
+    rarity: 5
+    visualImpact: 清代老宅、煲仔饭民俗叙事
+  reputation:
+    regularCustomers: 文化客群
+    buzz: 文化点灯系列，未爆
+  pricingCapacity:
+    priceBand: 中
+    capacity: 老宅空间
+    limit: 无
+  potentials:
+    人设反差度: 55
+    风味品相度: 80
+    故事叙事性: 90
+    情绪共鸣度: 85
+    素材续航度: 75
+  risks:
+    - 叙事>风味，美食本身冲击需加强
+  evidence:
+    - source: 南方+·一盘鱼生唤醒百年老宅
+      url: https://www.nfnews.com/content/16VLk9lbyr.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C20
+  sampleType: candidate
+  name: 赋狮楼
+  category: 粥底火锅 / 文化改造
+  district: 大良街道
+  address: 岭南古巷
+  operating: 营业中
+  owner:
+    background: 「文化点灯」系列
+    personality: 有文化叙事力
+    story: 岭南古巷中的粥底火锅，融入醒狮文化
+  craft:
+    keywords: [粥底火锅, 醒狮文化]
+    heritage: 岭南古巷空间
+    rarity: 4
+    visualImpact: 醒狮元素空间、粥底火锅
+  reputation:
+    regularCustomers: 文化客群
+    buzz: 文化点灯系列，未爆
+  pricingCapacity:
+    priceBand: 中
+    capacity: 古巷空间
+    limit: 无
+  potentials:
+    人设反差度: 60
+    风味品相度: 78
+    故事叙事性: 80
+    情绪共鸣度: 80
+    素材续航度: 75
+  risks:
+    - 文化叠加品类多，定位需聚焦
+  evidence:
+    - source: 南方+·一盘鱼生唤醒百年老宅
+      url: https://www.nfnews.com/content/16VLk9lbyr.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C21
+  sampleType: candidate
+  name: 富华饭店
+  category: 粥 / 顺德菜
+  district: 容桂街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 本地人超级推荐
+    personality: 待核
+    story: 猪杂粥+粥底绵密，凉拌鱼皮、煎酿辣椒必点
+  craft:
+    keywords: [猪杂粥, 凉拌鱼皮, 煎酿辣椒]
+    heritage: 无
+    rarity: 2
+    visualImpact: 待核
+  reputation:
+    regularCustomers: 本地人
+    buzz: 本地口碑，未爆
+  pricingCapacity:
+    priceBand: 人均适中
+    capacity: 待核
+    limit: 无
+  potentials:
+    人设反差度: 50
+    风味品相度: 80
+    故事叙事性: 55
+    情绪共鸣度: 70
+    素材续航度: 60
+  risks:
+    - 信息量少，需实地补采
+  evidence:
+    - source: 小红书·容桂本地人吐血整理美食攻略
+      url: https://www.xiaohongshu.com/discovery/item/65841c5a0000000038032b2c
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C22
+  sampleType: candidate
+  name: 华记粥饭店
+  category: 粥 / 广式
+  district: 容桂街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 三十多年老字号粥铺
+    personality: 待核
+    story: 三十多年老字号粥铺，人均25元
+  craft:
+    keywords: [粥, 老字号粥铺]
+    heritage: 三十多年老字号
+    rarity: 2
+    visualImpact: 待核
+  reputation:
+    regularCustomers: 本地街坊
+    buzz: 本地口碑，未爆
+  pricingCapacity:
+    priceBand: 人均约25元
+    capacity: 待核
+    limit: 无
+  potentials:
+    人设反差度: 50
+    风味品相度: 78
+    故事叙事性: 55
+    情绪共鸣度: 70
+    素材续航度: 55
+  risks:
+    - 信息量少，需实地补采
+  evidence:
+    - source: 网易·寻味顺德又何止大良
+      url: https://m.163.com/dy/article_v2/I40721OK0522B8ON.html
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C23
+  sampleType: candidate
+  name: 味香阁
+  category: 桑拿鸡
+  district: 容桂街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 本地桑拿店
+    personality: 待核
+    story: 桑拿鸡、冬瓜鸡盅
+  craft:
+    keywords: [桑拿鸡, 冬瓜鸡盅]
+    heritage: 无
+    rarity: 2
+    visualImpact: 桑拿蒸汽上桌
+  reputation:
+    regularCustomers: 本地
+    buzz: 本地人攻略提及，未爆
+  pricingCapacity:
+    priceBand: 人均适中
+    capacity: 待核
+    limit: 无
+  potentials:
+    人设反差度: 50
+    风味品相度: 80
+    故事叙事性: 55
+    情绪共鸣度: 70
+    素材续航度: 60
+  risks:
+    - 桑拿鸡品类竞争多，需差异化
+  evidence:
+    - source: 小红书·顺德桑拿鸡本地人推荐
+      url: https://www.xiaohongshu.com/discovery/item/68c38a72000000001d021e6c
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C24
+  sampleType: candidate
+  name: 友口福
+  category: 桑拿 / 生蚝
+  district: 大良街道
+  address: 待核
+  operating: 营业中
+  owner:
+    background: 本地桑拿店
+    personality: 待核
+    story: 桑拿生蚝、姜饭
+  craft:
+    keywords: [桑拿生蚝, 姜饭]
+    heritage: 无
+    rarity: 2
+    visualImpact: 桑拿蒸汽上桌
+  reputation:
+    regularCustomers: 本地
+    buzz: 本地人攻略提及，未爆
+  pricingCapacity:
+    priceBand: 人均适中
+    capacity: 待核
+    limit: 无
+  potentials:
+    人设反差度: 55
+    风味品相度: 78
+    故事叙事性: 60
+    情绪共鸣度: 70
+    素材续航度: 65
+  risks:
+    - 信息量少，需实地补采
+  evidence:
+    - source: 小红书·顺德桑拿鸡榜单
+      url: https://www.xiaohongshu.com/discovery/item/68c38a8d000000001d01c1fc
+      date: 2026
+  createdAt: 2026-08-14
+
+- id: SD-C25
+  sampleType: candidate
+  name: 为你厨房
+  category: 手作三明治 / 轻食
+  district: 大良街道
+  address: 万科金域滨江一期二楼
+  operating: 营业中
+  owner:
+    background: 老板摆摊出身
+    personality: 年轻、有韧性
+    story: 隐藏于二楼的手作三明治小店，老板此前摆摊出身，主打新鲜手作三明治与果茶
+  craft:
+    keywords: [手作三明治, 紫薯, 青提柠檬茶]
+    heritage: 无
+    rarity: 2
+    visualImpact: 隐藏二楼小店、手作出品
+  reputation:
+    regularCustomers: 附近年轻客群
+    buzz: 小红书探店，未爆
+  pricingCapacity:
+    priceBand: 人均约25元
+    capacity: 小
+    limit: 无
+  potentials:
+    人设反差度: 70
+    风味品相度: 72
+    故事叙事性: 70
+    情绪共鸣度: 70
+    素材续航度: 65
+  risks:
+    - 品类非顺德代表性美食，与"寻味顺德"主线关联弱
+  evidence:
+    - source: 小红书·隐藏在二楼的小店
+      url: https://www.xiaohongshu.com/discovery/item/63158c550000000008022745
+      date: 2026
+  createdAt: 2026-08-14

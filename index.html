@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>顺德美食地图</title>
+<style>
+  :root {
+    --paper: #f5efe6;          /* 底色不变 */
+    --ink: #3d3226;
+    --ink-soft: #8a735c;
+    --card: #fffdf8;
+    --line: #e6d7bd;
+    --accent: #b96a2f;
+    --shadow: 0 8px 28px rgba(93, 60, 22, .18);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    background-image:
+      radial-gradient(rgba(138,115,92,.06) 1px, transparent 1px);
+    background-size: 22px 22px;
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    padding-bottom: 36px;
+  }
+
+  header { text-align: center; padding: 22px 16px 8px; }
+  header .kicker {
+    font-size: 11px; letter-spacing: 4px; color: var(--ink-soft);
+    text-transform: uppercase; font-weight: 600;
+  }
+  header h1 {
+    font-size: 26px; letter-spacing: 3px; color: #8a4b1f;
+    margin-top: 6px; font-weight: 800;
+  }
+  header p { font-size: 13px; color: #9a7b62; margin-top: 6px; }
+  header p b { color: var(--accent); }
+
+  .stage {
+    display: flex; justify-content: center; padding: 14px 16px 8px;
+  }
+  .viewport {
+    position: relative;
+    width: min(1127px, 100%);
+    height: 72vh; min-height: 420px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    background: #e9e0cf;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .viewport.dragging { cursor: grabbing; }
+
+  .world {
+    position: absolute; top: 0; left: 0;
+    width: 1127px; height: 1395px;
+    transform-origin: 0 0;
+    will-change: transform;
+  }
+  .world .mapimg {
+    position: absolute; top: 0; left: 0;
+    width: 1127px; height: 1395px;
+    max-width: none;
+    display: block;
+    pointer-events: none;   /* 平移/缩放不被打断 */
+  }
+
+  /* ---------- 标记 ---------- */
+  .pin {
+    position: absolute;
+    transform: translate(-50%, -100%);
+    transform-origin: 50% 100%;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .pin-scale {
+    transform-origin: 50% 100%;
+    transition: transform .22s cubic-bezier(.34,1.56,.64,1);
+  }
+  .pin-body {
+    display: flex; flex-direction: column; align-items: center;
+    transition: transform .18s ease;
+  }
+  .pin:hover .pin-body { transform: translateY(-5px); }
+  .pin:hover { z-index: 6; }
+  .pin svg { filter: drop-shadow(0 3px 4px rgba(60,40,15,.35)); }
+  .pin .plabel {
+    margin-bottom: 1px;
+    font-size: 12px; font-weight: 700; color: #5c3817;
+    background: rgba(255,253,248,.94);
+    border: 1px solid rgba(180,140,90,.4);
+    padding: 2px 8px; border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(80,50,20,.15);
+    letter-spacing: .5px;
+    max-width: 150px; overflow: hidden; text-overflow: ellipsis;
+    pointer-events: none;
+  }
+  .pin .plabel.small { font-size: 10.5px; padding: 1px 6px; }
+
+  /* ---------- 弹窗 ---------- */
+  .popup {
+    position: absolute;
+    z-index: 20;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(60,38,12,.28);
+    min-width: 218px; max-width: 280px;
+    padding: 14px 16px 13px;
+    animation: pop-in .18s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes pop-in { from { opacity: 0; transform: scale(.92); } }
+  .popup .caret {
+    position: absolute; left: 50%; width: 0; height: 0;
+    border: 8px solid transparent;
+    transform: translateX(-50%);
+  }
+  .popup.below .caret { top: -15px; border-bottom-color: var(--card); filter: drop-shadow(0 -1px 0 var(--line)); }
+  .popup.above .caret { bottom: -15px; border-top-color: var(--card); }
+  .popup .close {
+    position: absolute; top: 9px; right: 10px;
+    border: none; background: none; cursor: pointer;
+    color: #b7a48c; font-size: 16px; line-height: 1;
+    transition: color .15s, transform .15s;
+  }
+  .popup .close:hover { color: var(--ink); transform: rotate(90deg); }
+  .popup .chip {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 7px;
+    color: #fff; font-size: 12px; font-weight: 800;
+    box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.35);
+    margin-right: 8px; vertical-align: 1px;
+  }
+  .popup h3 { font-size: 15px; color: #6b3d17; font-weight: 800; display: inline; }
+  .popup .area {
+    display: flex; align-items: flex-start; gap: 6px;
+    margin-top: 9px; padding-top: 9px;
+    border-top: 1px dashed var(--line);
+    font-size: 13px; color: #6f5c45; line-height: 1.55;
+  }
+  .popup .area .ic { font-size: 13px; }
+
+  /* ---------- 控件 ---------- */
+  .controls {
+    position: absolute; top: 14px; right: 14px; z-index: 30;
+    display: flex; flex-direction: column; gap: 8px; align-items: stretch;
+  }
+  .ctrl-group {
+    background: rgba(255,253,248,.92);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(60,38,12,.16);
+    overflow: hidden;
+  }
+  .ctrl-group button {
+    display: block; width: 40px; height: 40px;
+    border: none; background: transparent; cursor: pointer;
+    font-size: 20px; color: #6b3d17; line-height: 1;
+    transition: background .15s, color .15s;
+  }
+  .ctrl-group button:hover { background: #f2e8d4; color: #8a4b1f; }
+  .ctrl-group button:active { background: #e8d9bb; }
+  .ctrl-group button + button { border-top: 1px solid #f0e4d0; }
+  .ctrl-group button.reset { font-size: 16px; }
+  .zoom-readout {
+    background: rgba(255,253,248,.92);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(60,38,12,.16);
+    text-align: center; font-size: 11.5px; font-weight: 700;
+    color: #8a4b1f; padding: 7px 0; letter-spacing: .5px;
+  }
+
+  .hint {
+    position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
+    background: rgba(41,30,16,.55); color: #fdf6ea;
+    font-size: 12px; padding: 6px 14px; border-radius: 20px;
+    letter-spacing: 1px; white-space: nowrap; z-index: 30;
+    pointer-events: none;
+  }
+
+  /* ---------- 图例 ---------- */
+  .legend { max-width: 1127px; margin: 16px auto 0; padding: 0 16px; }
+  .legend .panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(93,60,22,.1);
+    overflow: hidden;
+  }
+  .legend .panel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 13px 18px; border-bottom: 1px solid #f0e4d0;
+  }
+  .legend .panel-head h2 { font-size: 15px; color: #6b3d17; letter-spacing: 1px; }
+  .legend .panel-head span { font-size: 12px; color: var(--ink-soft); }
+  .legend table { width: 100%; border-collapse: collapse; }
+  .legend th, .legend td {
+    text-align: left; padding: 11px 18px; font-size: 13px;
+  }
+  .legend thead th {
+    font-size: 11px; letter-spacing: 2px; color: var(--ink-soft);
+    background: #faf4e8; font-weight: 700; border-bottom: 1px solid var(--line);
+  }
+  .legend tbody tr { transition: background .15s; cursor: default; }
+  .legend tbody tr:hover { background: #faf4e8; }
+  .legend tbody tr + tr td { border-top: 1px solid #f5ecdc; }
+  .legend .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 7px; color: #fff;
+    font-size: 12px; font-weight: 800;
+    box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.35);
+  }
+  .legend td.name { font-weight: 700; color: #4a3321; }
+  .legend td.area { color: var(--ink-soft); font-size: 12.5px; }
+
+  @media (max-width: 620px) {
+    .viewport { height: 60vh; min-height: 340px; }
+    .legend td.area { display: none; }
+    header h1 { font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">SHUNDE · FOOD MAP</div>
+  <h1>🥘 顺德美食打卡地图</h1>
+  <p>共 <b>8</b> 家 · 滚轮缩放 / 拖拽平移 / 点击标记查看详情</p>
+</header>
+
+<div class="stage">
+  <div class="viewport" id="viewport">
+    <div class="world" id="world">
+      <img class="mapimg" src="1.png" alt="顺德地图">
+    </div>
+    <div class="controls" id="controls">
+      <div class="ctrl-group">
+        <button id="zin"  title="放大">＋</button>
+        <button id="zout" title="缩小">−</button>
+        <button id="zreset" class="reset" title="复位">⌂</button>
+      </div>
+      <div class="zoom-readout" id="zoomReadout">100%</div>
+    </div>
+    <div class="hint">滚轮缩放 · 拖拽平移 · 点击标记</div>
+  </div>
+</div>
+
+<div class="legend">
+  <div class="panel">
+    <div class="panel-head">
+      <h2>📋 店铺一览</h2>
+      <span>8 家 · 点击地图标记查看详情</span>
+    </div>
+    <table>
+      <thead><tr><th style="width:52px">#</th><th>店铺</th><th>大致区域</th></tr></thead>
+      <tbody id="legendBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+/* ================= 数据 ================= */
+const IMG_W = 1127, IMG_H = 1395;
+const stores = [
+  { id: 1, name: "莫氏鸡煲",             area: "陈村镇（绀现村，顺德最北）",        x: 0.69, y: 0.12, color: "#e05a33" },
+  { id: 2, name: "糖沙翁小店（陈伟祺）",   area: "大良金榜街",                       x: 0.76, y: 0.67, color: "#2f9e6e" },
+  { id: 3, name: "野仙鱼生",             area: "大良华盖里四巷（清晖园旁）",        x: 0.79, y: 0.66, color: "#3d7fc0" },
+  { id: 4, name: "探记煲仔饭",            area: "大良华盖里四巷（野仙旁边）",        x: 0.80, y: 0.67, color: "#b07a2f" },
+  { id: 5, name: "五姨婆糖水铺",          area: "大良蓬莱路",                       x: 0.81, y: 0.65, color: "#c94f7c" },
+  { id: 6, name: "美姐粥苑",              area: "勒流江义村（振记冰室对面）",        x: 0.39, y: 0.36, color: "#8a5cc0" },
+  { id: 7, name: "无招牌家庭作坊（老夫妻）", area: "容桂容里一带",                   x: 0.78, y: 0.79, color: "#d17a2a" },
+  { id: 8, name: "容边排骨饭",            area: "容桂容边天河路",                   x: 0.85, y: 0.76, color: "#4a7e3f" },
+];
+
+const viewport = document.getElementById('viewport');
+const world = document.getElementById('world');
+
+/* ================= 地图状态 ================= */
+let scale = 1, tx = 0, ty = 0;
+let fitScale = 1;
+let MIN_S, MAX_S = 10;
+let activePopup = null;   // { store, el }
+
+function vw(){ return viewport.clientWidth; }
+function vh(){ return viewport.clientHeight; }
+
+function fit() {
+  fitScale = Math.min(vw() / IMG_W, vh() / IMG_H);
+  MIN_S = Math.min(0.3, fitScale * 0.5);
+  scale = fitScale;
+  center();
+}
+function center() {
+  tx = (vw() - IMG_W * scale) / 2;
+  ty = (vh() - IMG_H * scale) / 2;
+  clamp();
+}
+function clamp() {
+  const imgW = IMG_W * scale, imgH = IMG_H * scale;
+  tx = imgW <= vw() ? (vw() - imgW) / 2 : Math.max(vw() - imgW - 80, Math.min(80, tx));
+  ty = imgH <= vh() ? (vh() - imgH) / 2 : Math.max(vh() - imgH - 80, Math.min(80, ty));
+}
+function render() {
+  world.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+  document.querySelectorAll('.pin-scale').forEach(p => {
+    p.style.transform = `scale(${1 / scale})`;
+  });
+  document.getElementById('zoomReadout').textContent = Math.round(scale * 100) + '%';
+  if (activePopup) placePopup(activePopup.store, activePopup.el);
+}
+
+/* ================= 标记 ================= */
+function buildPin(s) {
+  const pin = document.createElement('div');
+  pin.className = 'pin';
+  pin.style.left = (s.x * 100) + '%';
+  pin.style.top  = (s.y * 100) + '%';
+  const small = s.name.length > 9 ? ' small' : '';
+  pin.innerHTML = `
+    <div class="pin-scale">
+      <div class="pin-body">
+        <div class="plabel${small}">${s.name}</div>
+        <svg width="34" height="42" viewBox="0 0 34 42">
+          <defs>
+            <linearGradient id="pg${s.id}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="${s.color}"/>
+              <stop offset="1" stop-color="${shade(s.color)}"/>
+            </linearGradient>
+          </defs>
+          <path d="M17 1.6C8.4 1.6 2 8 2 16.4 2 26.4 17 41 17 41S32 26.4 32 16.4C32 8 25.6 1.6 17 1.6Z"
+                fill="url(#pg${s.id})" stroke="#fff" stroke-width="2.6"/>
+          <circle cx="17" cy="16.2" r="8.4" fill="#fff"/>
+          <text x="17" y="16.7" text-anchor="middle" dominant-baseline="central"
+                font-size="11.5" font-weight="800" fill="${shade(s.color)}">${s.id}</text>
+        </svg>
+      </div>
+    </div>`;
+  pin.addEventListener('click', e => {
+    e.stopPropagation();
+    openPopup(s, pin);
+  });
+  world.appendChild(pin);
+  return pin;
+}
+
+function shade(hex) { // 深色版（用于渐变底部 / 数字）
+  const n = parseInt(hex.slice(1), 16);
+  const r = Math.max(0, (n >> 16) - 60), g = Math.max(0, ((n >> 8) & 255) - 60), b = Math.max(0, (n & 255) - 60);
+  return '#' + ((r << 16) | (g << 8) | b).toString(16).padStart(6, '0');
+}
+
+/* ================= 弹窗 ================= */
+function openPopup(s) {
+  if (activePopup) activePopup.el.remove();
+  const el = document.createElement('div');
+  el.className = 'popup';
+  el.innerHTML = `
+    <button class="close" title="关闭">✕</button>
+    <div><span class="chip" style="background:${s.color}">${s.id}</span><h3>${s.name}</h3></div>
+    <div class="area"><span class="ic">📍</span><span>${s.area}</span></div>`;
+  el.querySelector('.close').addEventListener('click', () => { el.remove(); activePopup = null; });
+  el.addEventListener('click', e => e.stopPropagation());
+  viewport.appendChild(el);
+  activePopup = { store: s, el };
+  placePopup(s, el);
+}
+
+function placePopup(s, el) {
+  const sx = tx + s.x * IMG_W * scale;   // 标记屏幕坐标
+  const sy = ty + s.y * IMG_H * scale;
+  const ph = el.offsetHeight, pw = el.offsetWidth;
+
+  let above = sy - ph - 34 > 8;          // 上方有空间？
+  let left = sx - pw / 2;
+  left = Math.max(10, Math.min(vw() - pw - 10, left));
+
+  el.classList.toggle('above', above);
+  el.classList.toggle('below', !above);
+  el.style.left = left + 'px';
+  el.style.top  = (above ? sy - ph - 14 : sy + 22) + 'px';
+  el.style.animation = 'none'; void el.offsetHeight; el.style.animation = '';
+}
+
+/* ================= 平移 / 缩放 ================= */
+let dragging = false, moved = false;
+let startX, startY, startTx, startTy;
+const pointers = new Map();
+
+viewport.addEventListener('pointerdown', e => {
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  if (pointers.size === 1) {
+    dragging = true; moved = false;
+    startX = e.clientX; startY = e.clientY;
+    startTx = tx; startTy = ty;
+    viewport.classList.add('dragging');
+  } else if (pointers.size === 2) {
+    dragging = false;
+  }
+  viewport.setPointerCapture(e.pointerId);
+});
+
+viewport.addEventListener('pointermove', e => {
+  if (!pointers.has(e.pointerId)) return;
+  const prev = pointers.get(e.pointerId);
+  const dx = e.clientX - prev.x, dy = e.clientY - prev.y;
+  pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+
+  if (pointers.size === 2) {                 // 双指捏合缩放
+    const pts = [...pointers.values()];
+    const dist = Math.hypot(pts[0].x - pts[1].x, pts[0].y - pts[1].y);
+    if (pinchDist) {
+      const midX = (pts[0].x + pts[1].x) / 2 - viewport.getBoundingClientRect().left;
+      const midY = (pts[0].y + pts[1].y) / 2 - viewport.getBoundingClientRect().top;
+      zoomAt(midX, midY, dist / pinchDist);
+    }
+    pinchDist = dist;
+  } else if (pointers.size === 1 && dragging) {
+    tx = startTx + (e.clientX - startX);
+    ty = startTy + (e.clientY - startY);
+    clamp(); render();
+    moved = true;
+  }
+});
+let pinchDist = 0;
+
+function endPointer(e) {
+  pointers.delete(e.pointerId);
+  pinchDist = 0;
+  if (pointers.size === 0) {
+    dragging = false;
+    viewport.classList.remove('dragging');
+  }
+}
+viewport.addEventListener('pointerup', endPointer);
+viewport.addEventListener('pointercancel', endPointer);
+
+viewport.addEventListener('wheel', e => {
+  e.preventDefault();
+  const rect = viewport.getBoundingClientRect();
+  zoomAt(e.clientX - rect.left, e.clientY - rect.top, Math.exp(-e.deltaY * 0.0016));
+}, { passive: false });
+
+function zoomAt(cx, cy, factor) {
+  const ns = Math.max(MIN_S, Math.min(MAX_S, scale * factor));
+  if (ns === scale) return;
+  const wx = (cx - tx) / scale;   // 光标处的世界坐标
+  const wy = (cy - ty) / scale;
+  tx = cx - wx * ns;
+  ty = cy - wy * ns;
+  scale = ns;
+  clamp(); render();
+}
+
+function zoomBy(factor) {
+  zoomAt(vw() / 2, vh() / 2, factor);
+}
+
+document.getElementById('zin').addEventListener('click', () => zoomBy(1.35));
+document.getElementById('zout').addEventListener('click', () => zoomBy(1 / 1.35));
+document.getElementById('zreset').addEventListener('click', () => { fit(); render(); });
+
+viewport.addEventListener('click', () => {
+  if (moved) return;             // 拖拽过就不算点击
+  if (activePopup) { activePopup.el.remove(); activePopup = null; }
+});
+
+window.addEventListener('resize', () => { clamp(); render(); });
+
+/* ================= 图例 ================= */
+const legendBody = document.getElementById('legendBody');
+stores.forEach(s => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td><span class="num" style="background:${s.color}">${s.id}</span></td>
+    <td class="name">${s.name}</td>
+    <td class="area">${s.area}</td>`;
+  tr.addEventListener('click', () => {
+    fit(); render();
+    const sx = s.x * 100, sy = s.y * 100;   // 重新以标记为中心
+    scale = Math.max(scale, fitScale * 2.2); clamp();
+    tx = vw() / 2 - s.x * IMG_W * scale;
+    ty = vh() / 2 - s.y * IMG_H * scale;
+    clamp(); render();
+    openPopup(s);
+  });
+  legendBody.appendChild(tr);
+});
+
+/* ================= 初始化 ================= */
+stores.forEach(buildPin);
+fit(); render();
+</script>
+</body>
+</html>
